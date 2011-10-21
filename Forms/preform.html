@@ -1,0 +1,50 @@
+<html>
+
+<script type="text/javascript"> 
+//Add more fields dynamically.
+function addField(area,field,limit) {
+	if(!document.getElementById) return;
+	var field_area = document.getElementById(area);
+	var all_inputs = field_area.getElementsByTagName("input");
+	var last_item = all_inputs.length - 1;
+	var last = all_inputs[last_item].id;
+	var count = Number(last.split("_")[1]) + 1;
+	
+	if(count > limit && limit > 0) return;
+ 	
+	if(document.createElement) {
+		var li = document.createElement("li");
+		var input = document.createElement("input");
+		input.id = field+count;
+		input.name = field+count;
+		input.type = "text";
+		li.appendChild(input);
+		field_area.appendChild(li);
+	} else {
+		field_area.innerHTML += "<li><input name='"+(field+count)+"' id='"+(field+count)+"' type='text' /></li>";
+	}
+}
+</script> 
+
+<head>
+<title>Search Task Pre-form</title>
+</head>
+<body>
+
+<h1>Before you start...</h1>
+
+<form action="preform.php" method="post">
+<h2>Please describe your search task in one sentence.</h2>
+<textarea name="description" rows="5" cols="100" /></textarea>
+<h2>Please describe your search task with tags.</h2>
+<strong>Tags:</strong><br />
+<ol id="tags">
+<li><input type="text" name="tag_1" id="tag_1" /></li>
+</ol>
+<input type="button" value="Add new tag" onclick="addField('tags','tag_',-1);" />
+<input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>
+
