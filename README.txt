@@ -8,5 +8,5 @@ you may not copy, modify, sublicense, or distribute any file from
 this repository without the author's written permission.
 ----------------------------------------------------------------------
 Peeter Jürviste
-Email: jyrvistepeeter@gmail.com
+Email: jyrvistepeeter(at)gmail.com
 See also: http://searchtaskrepo.blogspot.com/
